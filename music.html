@@ -653,61 +653,6 @@ button:hover{
 
 </style>
 
-<script>
-  const audio = document.getElementById("myAudio");
-  const button = document.getElementById("playPauseBtn");
-
-  button.addEventListener("click", () => {
-    if (audio.paused) {
-      audio.play();
-      button.textContent = "Pause";
-    } else {
-      audio.pause();
-      button.textContent = "Play";
-    }
-  });
-
-
-  const audio2 = document.getElementById("myAudio2");
-  const button2 = document.getElementById("playPauseBtn2");
-
-  button2.addEventListener("click", () => {
-    if (audio2.paused) {
-      audio2.play();
-      button2.textContent = "Pause";
-    } else {
-      audio2.pause();
-      button2.textContent = "Play";
-    }
-  });
-
-  const audio3 = document.getElementById("myAudio3");
-  const button3 = document.getElementById("playPauseBtn3");
-
-  button3.addEventListener("click", () => {
-    if (audio3.paused) {
-      audio3.play();
-      button3.textContent = "Pause";
-    } else {
-      audio3.pause();
-      button3.textContent = "Play";
-    }
-  });
-
-  const audio4 = document.getElementById("myAudio4");
-  const button4 = document.getElementById("playPauseBtn4");
-
-  button4.addEventListener("click", () => {
-    if (audio4.paused) {
-      audio4.play();
-      button4.textContent = "Pause";
-    } else {
-      audio4.pause();
-      button4.textContent = "Play";
-    }
-  });
-
-</script>
 
 
 <body>
@@ -886,7 +831,28 @@ button:hover{
       
       
     
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const totalAudios = 4;
 
+      for (let i = 1; i <= totalAudios; i++) {
+        const audio = document.getElementById(`myAudio${i === 1 ? '' : i}`);
+        const button = document.getElementById(`playPauseBtn${i === 1 ? '' : i}`);
+
+        if (audio && button) {
+          button.addEventListener("click", () => {
+            if (audio.paused) {
+              audio.play();
+              button.textContent = "Pause";
+            } else {
+              audio.pause();
+              button.textContent = "Play";
+            }
+          });
+        }
+      }
+    });
+  </script>
  
 
   
